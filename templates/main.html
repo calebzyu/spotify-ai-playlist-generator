@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    const urls = {
+      index: "{{ url_for('index') }}",
+      login: "{{ url_for('login') }}",
+      generatePlaylist: "{{ url_for('generate_playlist') }}",
+    };
+  </script>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+  <title>Spotify AI Playlist Generator</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Spotify AI Playlist Generator</h1>
+    <div class="content">
+      <div class="content-row">
+        <label for="user-input">Prompt:</label>
+        <input type="text" id="user-input" class="input" placeholder="Genre, artist, mood, etc." size="80"
+          maxlength="150">
+      </div>
+      <div class="char-count-wrapper">
+        <span id="char-count">0 / 150</span>
+      </div>
+      <div class="content-row">
+        <label for="track-count" title="Max: 50">Number of Tracks:</label>
+        <input type="number" id="track-count" class="input" value="20" min="1" max="50" step="1">
+      </div>
+      <div class="content-row">
+        <input type="button" id="generate-button" class="button" value="Generate" disabled>
+        <input type="button" id="view-button" class="button" value="View Playlist" disabled>
+      </div>
+    </div>
+    </form>
+  </div>
+</body>
+
+</html>

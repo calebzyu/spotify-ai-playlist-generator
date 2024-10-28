@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#login-button {
+  display: block;
+  color: white;
+  background-color: #1db954;
+  margin: 0 auto 10px auto;
+}
+
+#login-button:hover {
+  background-color: #1ba24a;
+}
+
+.content-row {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+}
+
+.content-row input[type="button"] {
+  margin: 20px 10px 20px 0;
+}
+
+.input {
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#user-input {
+  padding: 10px;
+}
+
+.char-count-wrapper {
+  display: flex;
+  justify-content: end;
+  margin: -3px 0;
+}
+
+#char-count {
+  font-size: 0.8em;
+}
+
+#track-count {
+  padding: 8px;
+  width: 50px;
+}
+
+#generate-button {
+  color: white;
+}
+
+#generate-button:disabled {
+  background-color: #b1b1b1;
+  cursor: default;
+}
+
+#generate-button:enabled {
+  background-color: #007bff;
+}
+
+#generate-button:enabled:hover {
+  background-color: #0068d7;
+}
+
+#view-button {
+  color: white;
+}
+
+#view-button:disabled {
+  background-color: #b1b1b1;
+  cursor: default;
+}
+
+#view-button:enabled {
+  background-color: #2e2e2e;
+}
+
+#view-button:enabled:hover {
+  background-color: #515151;
+}
+
+#back-button {
+  background-color: #d5d5d5;
+}
+
+#back-button:hover {
+  background-color: #c1c0c0;
+}
