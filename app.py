@@ -6,8 +6,7 @@ from flask import Flask, request, jsonify, redirect, session, render_template, u
 from flask_cors import CORS
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
-from langchain_ollama import OllamaLLM
-from urllib.parse import quote
+from playlist_generator import PlaylistGenerator
 
 load_dotenv()
 
@@ -121,54 +120,15 @@ def generate_playlist():
     access_token = token_info["access_token"]
     sp = Spotify(auth=access_token)
 
-    # Get Spotify User ID
-    user_id = sp.current_user()["id"]
-
     # Get the user input from the request
     user_input = request.json.get("userInput")
 
     # Get the track count from the request
     track_count = request.json.get("trackCount")
-    print(track_count)
 
-    # Generate search query using LLM
-    model = OllamaLLM(model="llama3.1:8b")
-    prompt = f"""
-      Based on the following description, generate a precise and effective
-      search query for Spotify. Be creative and include filters like track
-      names, artist names, genres, or any other relevant keywords to make the
-      search as effective as possible.
-
-      You can also use Spotify-specific filters such as album, artist, track,
-      year, upc, genre, tag:hipster, tag:new, and isrc. These filters should be
-      used strategically to improve search accuracy.
-
-      An example query format is 'remaster track:Doxy artist:Miles Davis
-      genre:jazz'.
-
-      Guidelines:
-
-      Be faithful and accurate to the user prompt. If the prompt specifies
-      certain songs, artists, genres, or moods, ensure these are included
-      exactly as described. Prioritize clarity and relevance in the query by
-      focusing on the most pertinent search terms. Avoid unnecessary words or
-      details. 
-      
-      Return only the formatted query as plain text, with no additional symbols,
-      extra text, or quotation marks. 
-      
-      User prompt: {user_input}
-      """
-    llm_query = model.invoke(prompt)
-    encoded_query = quote(llm_query)  # Percent-encodes the LLM query
-
-    # Search Spotify API
-    results = sp.search(q=encoded_query, type="track,playlist", limit=track_count)
-    track_ids = [track["id"] for track in results["tracks"]["items"]]
-
-    # Create private playlist
-    playlist = sp.user_playlist_create(user=user_id, name="Generated Playlist", public=False)
-    sp.playlist_add_items(playlist["id"], track_ids)
+    # Generate Spotify playlist
+    playlist_generator = PlaylistGenerator(spotify=sp, user_input=user_input, track_count=track_count)
+    playlist = playlist_generator()
 
     return jsonify({"playlist_url": playlist["external_urls"]["spotify"]})
 
@@ -192,5 +152,9 @@ def error():
     message = "Failed to retrieve token information. Please try logging in again."
   return render_template("error.html", message=message)
 
-# if __name__ == "__main__":
-#   app.run(host="localhost", port=8000, debug=True)
+########################################
+# Entry point
+########################################
+
+if __name__ == "__main__":
+  app.run(host="localhost", port=8000, debug=True)

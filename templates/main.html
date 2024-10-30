@@ -13,6 +13,7 @@
     };
   </script>
   <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+  <link rel="icon" href="{{ url_for('static', filename='spotify-favicon.png') }}">
   <title>Spotify AI Playlist Generator</title>
 </head>
 
@@ -29,8 +30,8 @@
         <span id="char-count">0 / 150</span>
       </div>
       <div class="content-row">
-        <label for="track-count" title="Max: 50">Number of Tracks:</label>
-        <input type="number" id="track-count" class="input" value="20" min="1" max="50" step="1">
+        <label for="track-count" title="Max: 100">Number of Tracks:</label>
+        <input type="number" id="track-count" class="input" value="50" min="1" max="100" step="10">
       </div>
       <div class="content-row">
         <input type="button" id="generate-button" class="button" value="Generate" disabled>

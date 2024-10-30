@@ -1,7 +1,7 @@
 "use strict";
 
 const MAX_CHARS = 150;
-const MAX_TRACK_COUNT = 50;
+const MAX_TRACK_COUNT = 100;
 const MIN_TRACK_COUNT = 1;
 
 main();
@@ -83,8 +83,11 @@ function login() {
 // Sends a POST request to the generate_playlist endpoint and processes the user input.
 // If successful, enables a button to view the generated playlist.
 async function generatePlaylist() {
-  // Disable view playlist button
-  document.getElementById("view-button").disabled = true;
+  // Disable generate button view playlist button
+  const viewButton = document.getElementById("view-button");
+  const generateButton = document.getElementById("generate-button");
+  viewButton.disabled = true;
+  generateButton.disabled = true;
 
   // Retrieve user input and track count from input field
   const userInput = document.getElementById("user-input").value;
@@ -100,6 +103,7 @@ async function generatePlaylist() {
 
   // Parse the JSON response from the server
   let data = await response.json();
+  generateButton.disabled = false;  // Enable generate button
 
   // Check for HTTP status code
   if (!response.ok) {
@@ -114,7 +118,6 @@ async function generatePlaylist() {
 
   // If the resposne contains a valid playlist URL, enable the view playlist button
   if (data.playlist_url) {
-    const viewButton = document.getElementById("view-button");
     viewButton.disabled = false; // Enable view playlist button
 
     // Open playlist url in a new tab

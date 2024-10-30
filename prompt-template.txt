@@ -1,0 +1,57 @@
+Prompt:
+
+Based on the following description and user prompt, generate a Python dictionary with specific keys and values.
+
+Instructions:
+
+1. Dictionary Structure:
+   - The dictionary should have the following keys: "artists", "tracks", "genres".
+   - The values for "artists" and "tracks" should be lists of spotify queries, where each string is an effective and precise Spotify search query.  
+   - The value for "genres" should be a list of strings, where each string is a genre name. 
+   - List of genre names include:
+     - ['acoustic', 'afrobeat', 'alt-rock', 'alternative', 'ambient', 'anime', 'black-metal', 'bluegrass', 'blues', 'bossanova', 'brazil', 'breakbeat', 'british', 'cantopop', 'chicago-house', 'children', 'chill', 'classical', 'club', 'comedy', 'country', 'dance', 'dancehall', 'death-metal', 'deep-house', 'detroit-techno', 'disco', 'disney', 'drum-and-bass', 'dub', 'dubstep', 'edm', 'electro', 'electronic', 'emo', 'folk', 'forro', 'french', 'funk', 'garage', 'german', 'gospel', 'goth', 'grindcore', 'groove', 'grunge', 'guitar', 'happy', 'hard-rock', 'hardcore', 'hardstyle', 'heavy-metal', 'hip-hop', 'holidays', 'honky-tonk', 'house', 'idm', 'indian', 'indie', 'indie-pop', 'industrial', 'iranian', 'j-dance', 'j-idol', 'j-pop', 'j-rock', 'jazz', 'k-pop', 'kids', 'latin', 'latino', 'malay', 'mandopop', 'metal', 'metal-misc', 'metalcore', 'minimal-techno', 'movies', 'mpb', 'new-age', 'new-release', 'opera', 'pagode', 'party', 'philippines-opm', 'piano', 'pop', 'pop-film', 'post-dubstep', 'power-pop', 'progressive-house', 'psych-rock', 'punk', 'punk-rock', 'r-n-b', 'rainy-day', 'reggae', 'reggaeton', 'road-trip', 'rock', 'rock-n-roll', 'rockabilly', 'romance', 'sad', 'salsa', 'samba', 'sertanejo', 'show-tunes', 'singer-songwriter', 'ska', 'sleep', 'songwriter', 'soul', 'soundtracks', 'spanish', 'study', 'summer', 'swedish', 'synth-pop', 'tango', 'techno', 'trance', 'trip-hop', 'turkish', 'work-out', 'world-music']
+
+1. Processing the User Prompt:
+   - Analyze the user prompt to identify any mentions of specific tracks, genres, or artists.
+   - If the user wants to specifically include a artist, track, or genre, create a separate search query and include it in the appropriate list within the dictionary.
+   - The list of queries must include at least one track, genre, or artist.
+   - Add tracks, artists, and genres that aligns closely to the type of playlist the user wants.
+   - Every element should compliment each other like they would in a playlist.
+   - There should be 2 artists, 1 genre, and 2 tracks.
+
+2. Using Field Filters:
+   - Utilize Spotify-specific search filters to improve search accuracy. Available filters include:
+     - album, artist, track, year, genre.
+   - Apply filters appropriately based on the type of search:
+     - The "artist" and "year" filters can be used when searching artists and tracks.
+     - The "album" filter can be used when searching tracks.
+     - The "genre" filter can be used when searching tracks.
+     - The "track" filters can be used when searching tracks.
+   - You can filter on a single year or a range (e.g., "year:1955-1960").
+   
+4. Formatting Search Queries:
+   - Construct search queries by combining keywords and filters.
+   - An example query format is: "remaster track:Doxy artist:Miles Davis genre:jazz".
+   - There should be no quotations in the queries.
+   - If a track has multiple parts, consider searching for the entire work instead of individual parts.
+   - An artist name should be their full name.
+
+5. Output Format:
+   - Return the Python dictionary in a syntactically correct format.
+   - Ensure that strings are properly quoted, and the overall structure follows Python syntax rules.
+   - Group together filters that are part of one query. A search query should its own element in a list. 
+   - Match exactly the example output below as plain text, not markdown.
+
+Example Output:
+{{
+    "artists": ["artist:The Beatles", "artist:Miles Davis"],
+    "tracks": ["track:Come Together artist:The Beatles", "track:Billie Jean artist:Michael Jackson"],
+    "genres": ["rock", "jazz"]
+}}
+
+Important:
+1. Across all lists in the python dictionary, there should be no more than 5 elements. For example, there should not be 2 artists, 2 tracks, and 2 genres. This is a total of 6 elements.
+2. Output only the python dictionary and nothing else at all. 
+3. Do not URL encode any symbol.
+
+User Prompt: {user_input}
