@@ -2,12 +2,13 @@
 
 A Flask-based web application that utilizes the Spotify API to generate custom playlists based on user prompts. This project leverages a large language model (LLM) to interpret user input, turning it into Spotify search queries used to recommend songs aligned with the user's specified mood, genre, artist preferences, and more.
 
+---
+
 ## Contents
   - [Technologies Used](#technologies-used)
   - [Spotify API Setup](#spotify-api-setup)
   - [Installation](#installation)
   - [Usage](#usage)
----
 
 ## Technologies Used
 
