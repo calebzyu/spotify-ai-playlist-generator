@@ -9,7 +9,7 @@ A Flask-based web application that utilizes the Spotify API to generate custom p
   - [Usage](#usage)
 ---
 
-### Technologies Used
+## Technologies Used
 
 | Technology                          | Description                                                               |
 | ----------------------------------- | ------------------------------------------------------------------------- |
@@ -18,7 +18,7 @@ A Flask-based web application that utilizes the Spotify API to generate custom p
 | Spotify API                         | Conduct Spotify search, fetch song recommendations, and curate playlists. |
 | Ollama `llama3.1:70b-instruct-q2_K` | Generate creative search queries.                                         |
 
-### Spotify API Setup
+## Spotify API Setup
 
 To set up the app, you will need:
 
@@ -31,7 +31,7 @@ To set up the app, you will need:
     print(secrets.token_hex(16))
     ```
 
-### Installation
+## Installation
 
 1. **Clone the Repository:**
    
@@ -62,7 +62,7 @@ To set up the app, you will need:
     flask run
     ```
 
-### Usage
+## Usage
 
 1. Visit the application in your browser at `http://localhost:8000`.
 2. Log in with your Spotify account to allow the app to create playlists.
