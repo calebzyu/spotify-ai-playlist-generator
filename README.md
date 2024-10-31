@@ -14,8 +14,8 @@ A Flask-based web application that utilizes the Spotify API to generate custom p
 
 | Technology                          | Description                                                               |
 | ----------------------------------- | ------------------------------------------------------------------------- |
-| JavaScript, HTML, CSS                | Front-end for user interactions.                                          |
-| Flask                               | Back-end for handling requests and data processing                        |
+| JavaScript, HTML, CSS               | Front-end for user interactions.                                          |
+| Flask                               | Back-end for handling requests and data processing.                       |
 | Spotify API                         | Conduct Spotify search, fetch song recommendations, and curate playlists. |
 | Ollama `llama3.1:70b-instruct-q2_K` | Generate creative search queries.                                         |
 
