@@ -53,6 +53,7 @@ class PlaylistGenerator:
         }
       ],
       response_format=ResponseFormat,
+      temperature=1.25
     )
     print(completion.choices[0].message)  # Debug
 

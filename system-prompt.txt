@@ -12,7 +12,7 @@ Instructions:
 2. User Prompt Analysis:
    - Identify specific artists, tracks, or genres from the user prompt.
    - Create search queries for each identified item.
-   - Add tracks, artists, and genres that aligns closely to the type of playlist the user wants.
+   - Add tracks, artists, and genres that strictly match the user's input. Include specific tracks or artists that directly reflect the input to steer recommendations in the right direction.
    - Ensure all elements fit a cohesive playlist theme.
    - No more than 2 genres.
 
