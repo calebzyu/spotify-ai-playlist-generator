@@ -7,17 +7,18 @@ A Flask-based web application that utilizes the Spotify API to generate custom p
 ## Contents
   - [Technologies Used](#technologies-used)
   - [Spotify API Setup](#spotify-api-setup)
+  - [OpenAI API Setup](#openai-api-setup)
   - [Installation](#installation)
   - [Usage](#usage)
 
 ## Technologies Used
 
-| Technology                          | Description                                                               |
-| ----------------------------------- | ------------------------------------------------------------------------- |
-| JavaScript, HTML, CSS               | Front-end for user interactions.                                          |
-| Flask                               | Back-end for handling requests and data processing.                       |
-| Spotify API                         | Conduct Spotify search, fetch song recommendations, and curate playlists. |
-| Ollama `llama3.1:70b-instruct-q2_K` | Generate creative search queries.                                         |
+| Technology            | Description                                                               |
+| --------------------- | ------------------------------------------------------------------------- |
+| JavaScript, HTML, CSS | Front-end for user interactions.                                          |
+| Flask                 | Back-end for handling requests and data processing.                       |
+| Spotify API           | Conduct Spotify search, fetch song recommendations, and curate playlists. |
+| OpenAI `gpt-4o`       | Generate creative search queries.                                         |
 
 ## Spotify API Setup
 
@@ -31,6 +32,10 @@ To set up the app, you will need:
     import secrets
     print(secrets.token_hex(16))
     ```
+
+## OpenAI API Setup
+
+To use the OpenAI API, obtain your API key from [OpenAI](https://platform.openai.com/api-keys).
 
 ## Installation
 
@@ -49,6 +54,7 @@ To set up the app, you will need:
     CLIENT_ID = <Spotify Client ID>
     CLIENT_SECRET = <Spotify Client Secret>
     SECRET_KEY = <Flask Secret Key>
+    OPENAI_API_KEY <OpenAI API Key>
     ```
 
 3. **Install Dependencies:**
@@ -60,7 +66,7 @@ To set up the app, you will need:
 4. **Run the Flask Application:**
    
     ```bash
-    flask run
+    flask run --port 8000
     ```
 
 ## Usage
@@ -68,4 +74,4 @@ To set up the app, you will need:
 1. Visit the application in your browser at `http://localhost:8000`.
 2. Log in with your Spotify account to allow the app to create playlists.
 3. Enter a prompt describing your desired playlist (e.g., `smooth jazz for a rainy evening`).
-4. The app will generate a playlist, which you can then view in your account.
+4. The app will generate a playlist, which you can then view in your Spotify account.
