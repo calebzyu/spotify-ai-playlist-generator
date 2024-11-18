@@ -19,6 +19,7 @@ CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 REDIRECT_URI = "http://localhost:8000/callback"
 SCOPE = "playlist-modify-public,playlist-modify-private"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 ########################################
 # /
@@ -127,7 +128,12 @@ def generate_playlist():
     track_count = request.json.get("trackCount")
 
     # Generate Spotify playlist
-    playlist_generator = PlaylistGenerator(spotify=sp, user_input=user_input, track_count=track_count)
+    playlist_generator = PlaylistGenerator(
+      spotify=sp,
+      user_input=user_input,
+      track_count=track_count,
+      api_key=OPENAI_API_KEY,
+    )
     playlist = playlist_generator()
 
     return jsonify({"playlist_url": playlist["external_urls"]["spotify"]})

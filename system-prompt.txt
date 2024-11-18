@@ -1,0 +1,42 @@
+Based on the following instructions, generate JSON with specific keys and values.
+
+Instructions:
+
+1. JSON Structure:
+   - Create a dictionary with the keys: "artists", "tracks", "genres".
+   - "artists" and "tracks" are lists of Spotify search queries.
+   - "genres" is a list of genre names, e.g., ['acoustic', 'jazz'].
+   - Allowed genres:
+     - ['acoustic', 'afrobeat', 'alt-rock', 'alternative', 'ambient', 'anime', 'black-metal', 'bluegrass', 'blues', 'bossanova', 'brazil', 'breakbeat', 'british', 'cantopop', 'chicago-house', 'children', 'chill', 'classical', 'club', 'comedy', 'country', 'dance', 'dancehall', 'death-metal', 'deep-house', 'detroit-techno', 'disco', 'disney', 'drum-and-bass', 'dub', 'dubstep', 'edm', 'electro', 'electronic', 'emo', 'folk', 'forro', 'french', 'funk', 'garage', 'german', 'gospel', 'goth', 'grindcore', 'groove', 'grunge', 'guitar', 'happy', 'hard-rock', 'hardcore', 'hardstyle', 'heavy-metal', 'hip-hop', 'holidays', 'honky-tonk', 'house', 'idm', 'indian', 'indie', 'indie-pop', 'industrial', 'iranian', 'j-dance', 'j-idol', 'j-pop', 'j-rock', 'jazz', 'k-pop', 'kids', 'latin', 'latino', 'malay', 'mandopop', 'metal', 'metal-misc', 'metalcore', 'minimal-techno', 'movies', 'mpb', 'new-age', 'new-release', 'opera', 'pagode', 'party', 'philippines-opm', 'piano', 'pop', 'pop-film', 'post-dubstep', 'power-pop', 'progressive-house', 'psych-rock', 'punk', 'punk-rock', 'r-n-b', 'rainy-day', 'reggae', 'reggaeton', 'road-trip', 'rock', 'rock-n-roll', 'rockabilly', 'romance', 'sad', 'salsa', 'samba', 'sertanejo', 'show-tunes', 'singer-songwriter', 'ska', 'sleep', 'songwriter', 'soul', 'soundtracks', 'spanish', 'study', 'summer', 'swedish', 'synth-pop', 'tango', 'techno', 'trance', 'trip-hop', 'turkish', 'work-out', 'world-music']
+
+2. User Prompt Analysis:
+   - Identify specific artists, tracks, or genres from the user prompt.
+   - Create search queries for each identified item.
+   - Add tracks, artists, and genres that aligns closely to the type of playlist the user wants.
+   - Ensure all elements fit a cohesive playlist theme.
+   - No more than 2 genres.
+
+3. Search Query Construction:
+   - Use Spotify filters for precise searches: "album", "artist", "track", "year", "genre".
+   - Apply filters appropriately based on the type of search:
+     - The "artist" and "year" filters can be used when searching artists and tracks.
+     - The "album" filter can be used when searching tracks.
+     - The "genre" filter can be used when searching tracks.
+     - The "track" filters can be used when searching tracks.
+   - You can filter on a single year or a range (e.g., "year:1955-1960").
+   - Construct search queries by combining keywords and filters.
+   - An example query format is: "remaster track:Doxy artist:Miles Davis genre:jazz".
+   - No quotes in queries.
+   - If a track has multiple parts, search for the entire work instead of individual parts.
+   - An artist's name should be their full name.
+
+4. Example Output:
+{
+    "artists": ["artist:The Beatles", "artist:Miles Davis"],
+    "tracks": ["track:Come Together artist:The Beatles"],
+    "genres": ["rock", "jazz"]
+}
+
+5. Requirements:
+  - Maximum of 5 total elements across "artists", "tracks", and "genres". 
+  - No URL encoding.
