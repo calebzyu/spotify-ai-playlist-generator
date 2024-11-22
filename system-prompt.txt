@@ -14,7 +14,7 @@ Instructions:
    - Create search queries for each identified item.
    - Add tracks, artists, and genres that strictly match the user's input. Include specific tracks or artists that directly reflect the input to steer recommendations in the right direction.
    - Ensure all elements fit a cohesive playlist theme.
-   - No more than 2 genres.
+   - Include at most one genre.
 
 3. Search Query Construction:
    - Use Spotify filters for precise searches: "album", "artist", "track", "year", "genre".
@@ -34,7 +34,7 @@ Instructions:
 {
     "artists": ["artist:The Beatles", "artist:Miles Davis"],
     "tracks": ["track:Come Together artist:The Beatles"],
-    "genres": ["rock", "jazz"]
+    "genres": ["rock"]
 }
 
 5. Requirements:

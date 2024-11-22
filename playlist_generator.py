@@ -105,6 +105,10 @@ class PlaylistGenerator:
 
     print({"seed_artists": seed_artists, "seed_genres": seed_genres, "seed_tracks": seed_tracks})  # Debug
 
+    # Fallback mechanism to enforce a single genre limit 
+    if len(seed_genres) > 1:
+      seed_genres = [seed_genres[0]]
+
     # Get Spotify recommendation results
     results = self.sp.recommendations(
       seed_artists=seed_artists,
